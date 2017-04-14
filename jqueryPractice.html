@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="./js/jquery-3.2.0.js"></script>
+    <script type="text/javascript">
+        var maxChar = 100;
+        $(document).ready(function() {
+            $('#counter').text(maxChar);
+            $('#memo').keyup(function(event) {
+                var msg = $(this).val();
+                var numChar = msg.length;
+                var charRemain = maxChar - numChar;
+                if (numChar <= maxChar) {
+                    $('#counter').text(charRemain);
+                } else {
+                    event.preventDefault();
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('h1').mouseenter(function() {
+                    $(this).addClass("yellow");
+                })
+                .mouseleave(function() {
+                    $(this).removeClass("yellow");
+                });
+        });
+
+        $(document).ready(function() {
+            $('#log').addClass('red');
+            $("a").click(function(event) {
+                event.preventDefault();
+                $('#log').text('預設事件行為: ' + event.type + ' 被阻擋');
+            });
+        });
+
+        $(document).ready(function() {
+            //$('*').addClass('line');
+            $('p').eq(2).addClass('blue');
+            $('#list').addClass('red');
+            $('.item').addClass('green');
+        });
+
+    </script>
+    <style>
+        .yellow { color: lightyellow; }
+        .blue { color: blue; }
+        .red { color: red; }
+        .green { color: green; }
+        .line { border: 1px solid #333; }
+    </style>
+</head>
+
+<body>
+    <h1>MouseHere</h1>
+    <p id="counter">0</p>
+    <input type="text" id="memo">
+    <a href="http://www.hinet.net">沒有作用的超連結</a>
+    <hr/>
+    <div id="log"></div>
+
+    <p>JavaScript網頁設計</p>
+    <p>jQuery網頁設計</p>
+    <ol id="list">
+        <li>jQuery</li>
+        <li class='item'>Prototype</li>
+        <li>MooTools</li>
+        <li class='item'>DOJO</li>
+    </ol>
+
+</body>
+
+</html>
+
+<!-- jQuery Bind Practice
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#large').bind("click", setLarge);
+        $('#default').bind("click", setDefault);
+      });
+
+      function setLarge() {
+        $('p').addClass('large');
+      };
+
+      function setDefault() {
+        $('p').removeClass();
+      }
+    </script>
+    <style type="text/css">
+      .large { font-size: 15pt; }
+      .line { border: 1px solid #333; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <span id="default">標準</span>
+    <span id="large">放大</span>
+    <p>JSP Web Design</p>
+  </body>
+</html>
+-->
+
+<!-- jQuery DOM practice
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
+    <script language="JavaScript">
+      $(document).ready(function() {
+        $('.content1').html('<div class=“main”>jQuery網頁設計</div>'); //javascript之innerHTML屬性
+        $('.content2').text('HTML網頁設計'); //javascript之innerText屬性
+        $('.content2').append('<p>PHP網頁設計</p>'); //最後一個子元素, prepend()
+        $('.content2').after('<p>JSP網頁設計</p>'); //插入至元素之後, before()
+        $('.content3').remove();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="content1">
+      <p>JavaScript網頁設計</p>
+    </div>
+    <div class='content2'></div>
+    <div class='content3'>ASP.NET網頁設計</div>
+  </body>
+</html>
+-->
